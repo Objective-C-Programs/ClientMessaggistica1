@@ -45,7 +45,7 @@
             NSLog(@"Show buddy list");
         }
     } else {
-        [self showLogin];
+       // [self showLogin];
     }
 }
 
