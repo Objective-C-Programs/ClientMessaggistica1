@@ -11,6 +11,16 @@
 
 @class SMBuddyListViewController;
 
+@protocol SMChatDelegate
+- (void) newBuddyOnline:(NSString *)buddyName;
+- (void)buddyWentOffline:(NSString *)buddyName;
+- (void)didDisconnect;
+@end
+
+@protocol SMMessageDelegate
+- (void)newMessageReceived:(NSDictionary *)messageContent;
+@end
+
 @interface AppDelegate : NSObject <UIApplicationDelegate> {
     
     UIWindow *window;
