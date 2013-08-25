@@ -8,6 +8,7 @@
 // Questa vista contiene la lista dei contatti online.
 
 #import "BuddyListViewController.h"
+#import "SMLoginViewController.h"
 
 @interface BuddyListViewController ()
 
@@ -17,8 +18,7 @@
 
 @synthesize tView;
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
+- (id)initWithStyle:(UITableViewStyle)style {
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
@@ -26,8 +26,7 @@
     return self;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
 
     self.tView.delegate = self;
@@ -35,12 +34,18 @@
     onlineBuddies = [[NSMutableArray alloc] init];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSString *login = [[NSUserDefaults standardUserDefaults] objectForKey:@"userID"];
+    if (!login) {
+        [self showLogin];
+    }
+}
 ///*********************************************
 #pragma mark - Table view delegate
 ///*********************************************
@@ -76,7 +81,8 @@
 ///*********************************************
 
 - (void)showLogin {
-    //Show login view.
+    SMLoginViewController *loginController = [[SMLoginViewController alloc] init];
+    [self presentViewController:loginController animated:YES completion:nil];
 }
 
 /*
