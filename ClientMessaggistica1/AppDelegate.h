@@ -7,9 +7,24 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "XMPP.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@class SMBuddyListViewController;
 
-@property (strong, nonatomic) UIWindow *window;
+@interface AppDelegate : NSObject <UIApplicationDelegate> {
+    
+    UIWindow *window;
+    SMBuddyListViewController *viewController;
+    XMPPStream *xmppStream;
+    NSString *password;
+    BOOL isOpen;
+}
+
+@property (nonatomic, retain) IBOutlet UIWindow *window;
+@property (nonatomic, retain) IBOutlet SMBuddyListViewController *viewController;
+@property (nonatomic, readonly) XMPPStream *xmppStream;
+
+- (BOOL) connect;
+- (void) disconnect;
 
 @end
