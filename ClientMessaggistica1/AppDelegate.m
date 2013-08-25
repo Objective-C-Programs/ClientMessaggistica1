@@ -21,6 +21,7 @@ NSString * const USER_PASSWORD = @"userPassword";
 @implementation AppDelegate
 
 @synthesize window, xmppStream, viewController;
+@synthesize chatDelegate, messageDelegate;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -60,8 +61,6 @@ NSString * const USER_PASSWORD = @"userPassword";
 ///***************************************************************
 #pragma mark - XMPP
 ///***************************************************************
-
-
 
 - (void) setupStream {
     xmppStream = [[XMPPStream alloc] init];
@@ -111,5 +110,50 @@ NSString * const USER_PASSWORD = @"userPassword";
 - (void) disconnect {
     [self goOffline];
     [xmppStream disconnect];
+}
+
+/**
+ Connection to the server successful.
+ */
+- (void) xmppStreamDidConnect:(XMPPStream *)sender {
+    isOpen = YES;
+    NSError *error = nil;
+    [[self xmppStream] authenticateWithPassword:password error:&error];
+}
+
+/**
+ Authentication successful.
+ */
+- (void) xmppStreamDidAuthenticate:(XMPPStream *)sender {
+    [self goOnline];
+}
+
+/**
+ Message Receive
+ */
+- (void) xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message {
+    NSString *msg = [[message elementForName:@"body"] stringValue];
+    NSString *from = [[message attributeForName:@"from"] stringValue];
+    NSMutableDictionary *m = [[NSMutableDictionary alloc] init];
+    [m setObject:msg forKey:@"msg"];
+    [m setObject:from forKey:@"sender"];
+    [messageDelegate newMesssageReceived:m];
+}
+
+/**
+ A buddy went offline/online
+ */
+- (void) xmppStream:(XMPPStream *)sender didReceivePresence:(XMPPPresence *)presence {
+    NSString *presenceType = [presence type]; //online / offline.
+    NSString *myUsername = [[sender myJID] user];
+    NSString *presenceFromUser = [[presence from] user];
+#warning Cambiare i nomi.
+    if (![presenceFromUser isEqualToString:myUsername]) {
+        if ([presenceType isEqualToString:@"available"]) {
+            [chatDelegate newBuddyOnline:[NSString stringWithFormat:@"%@@%@", presenceFromUser, @"jerry.local"]];
+        } else if ([presenceType isEqualToString:@"unavailable"]) {
+            [chatDelegate buddyWentOffline:[NSString stringWithFormat:@"%@@%@", presenceFromUser, @"jerry.local"]];
+        }
+    }
 }
 @end
