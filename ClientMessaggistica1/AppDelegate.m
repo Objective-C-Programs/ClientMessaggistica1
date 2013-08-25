@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+NSString * const USER_ID = @"userID";
+NSString * const USER_PASSWORD = @"userPassword";
+
 @interface AppDelegate ()
 
 - (void) setupStream;
@@ -16,6 +19,8 @@
 @end
 
 @implementation AppDelegate
+
+@synthesize window, xmppStream, viewController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -27,6 +32,7 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [self disconnect];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -43,6 +49,7 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    [self connect];
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -54,19 +61,55 @@
 #pragma mark - XMPP
 ///***************************************************************
 
-- (void)setupStream {
+
+
+- (void) setupStream {
     xmppStream = [[XMPPStream alloc] init];
    [xmppStream addDelegate:self delegateQueue:dispatch_get_main_queue()];
 }
 
-- (void)goOnline {
+- (void) goOnline {
     XMPPPresence *presence = [XMPPPresence presence];
     [[self xmppStream] sendElement:presence];
 }
 
-- (void)goOffline {
+- (void) goOffline {
     XMPPPresence *presence = [XMPPPresence presenceWithType:@"unavailable"];
     [[self xmppStream] sendElement:presence];
 }
 
+/**
+ Dice se la connessione ha avuto successo oppure no.
+ */
+- (BOOL) connect {
+    [self setupStream];
+#warning Mettere key in una classe appostia.
+    NSString *jabberID = [[NSUserDefaults standardUserDefaults] stringForKey:USER_ID];
+    NSString *myPassword = [[NSUserDefaults standardUserDefaults] stringForKey:USER_PASSWORD];
+    if (![xmppStream isDisconnected]) {
+        return YES;
+    }
+    if (jabberID == nil || myPassword == nil) {
+        return NO;
+    }
+    [xmppStream setMyJID:[XMPPJID jidWithString:jabberID]];
+    password = myPassword;
+    NSError *error = nil;
+    if (![xmppStream connectWithTimeout:XMPPStreamTimeoutNone error:&error])
+    {UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Error connecting"
+                                                         message:@"See console for error details."
+                                                        delegate:nil
+                                               cancelButtonTitle:@"Ok"
+                                               otherButtonTitles:nil];
+        [alertView show];
+        NSLog(@"Error connecting: %@", error);
+        return NO;
+    }
+    return YES;
+}
+
+- (void) disconnect {
+    [self goOffline];
+    [xmppStream disconnect];
+}
 @end
