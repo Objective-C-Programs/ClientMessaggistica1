@@ -8,8 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "XMPP.h"
+#import "SMChatDelegate.h"
+#import "SMMessageDelegate.h"
 
 @class SMBuddyListViewController;
+
+@protocol SMChatDelegate
+- (void) newBuddyOnline:(NSString *)buddyName;
+- (void)buddyWentOffline:(NSString *)buddyName;
+- (void)didDisconnect;
+@end
+
+@protocol SMMessageDelegate
+- (void)newMessageReceived:(NSDictionary *)messageContent;
+@end
 
 @interface AppDelegate : NSObject <UIApplicationDelegate> {
     
@@ -18,11 +30,17 @@
     XMPPStream *xmppStream;
     NSString *password;
     BOOL isOpen;
+    
+    NSObject *_chatDelegate;
+    NSObject *_messageDelegate;
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet SMBuddyListViewController *viewController;
 @property (nonatomic, readonly) XMPPStream *xmppStream;
+
+@property (nonatomic, assign)id chatDelegate;
+@property (nonatomic, assign)id messageDelegate;
 
 - (BOOL) connect;
 - (void) disconnect;
