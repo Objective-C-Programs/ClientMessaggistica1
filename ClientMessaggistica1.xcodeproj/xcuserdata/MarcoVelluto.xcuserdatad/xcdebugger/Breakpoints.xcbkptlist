@@ -32,24 +32,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "ClientMessaggistica1/BuddyListViewController.m"
-         timestampString = "399161657.205499"
+         timestampString = "399216507.138309"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "44"
-         endingLineNumber = "44"
-         landmarkName = "-viewDidAppear:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "ClientMessaggistica1/BuddyListViewController.m"
-         timestampString = "399161657.205499"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "85"
-         endingLineNumber = "85"
+         startingLineNumber = "91"
+         endingLineNumber = "91"
          landmarkName = "-showLogin"
          landmarkType = "5">
       </FileBreakpoint>
@@ -91,6 +78,32 @@
          endingLineNumber = "31"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ClientMessaggistica1/BuddyListViewController.m"
+         timestampString = "399216507.138309"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "83"
+         endingLineNumber = "83"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "ClientMessaggistica1/SMChatViewController.m"
+         timestampString = "399216428.966606"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "16"
+         endingLineNumber = "16"
+         landmarkName = "@implementation SMChatViewController"
+         landmarkType = "3">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

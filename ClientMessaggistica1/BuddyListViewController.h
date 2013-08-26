@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "SMLoginViewController.h"
+#import "AppDelegate.h"
 
-@interface BuddyListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface BuddyListViewController : UITableViewController <UITableViewDelegate, UITableViewDataSource, SMChatDelegate> {
     UITableView *tView;
     NSMutableArray *onlineBuddies; 
 }

@@ -8,9 +8,9 @@
 // Questa vista contiene la lista dei contatti online.
 
 #import "BuddyListViewController.h"
-#import "SMLoginViewController.h"
-#import "AppDelegate.h"
-
+#import "XMPP.h"
+#import "XMPPRoster.h"
+#import "SMChatViewController.h"
 @interface BuddyListViewController ()
 
 @end
@@ -31,9 +31,10 @@
     [super viewDidLoad];
 
     self.tView.delegate = self;
-    self.tView.dataSource = self;
-    onlineBuddies = [[NSMutableArray alloc] init];
-}
+	self.tView.dataSource = self;
+	AppDelegate *del = [self appDelegate];
+	del.chatDelegate = self;
+	onlineBuddies = [[NSMutableArray alloc ] init];}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -41,11 +42,14 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     NSString *login = [[NSUserDefaults standardUserDefaults] objectForKey:@"userID"];
-    if (!login) {
+	if (login) {
+		if ([[self appDelegate] connect]) {
+			NSLog(@"show buddy list");
+		}
+	} else {
         [self showLogin];
-    }
+	}
 }
 ///*********************************************
 #pragma mark - Table view delegate
@@ -74,7 +78,9 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //Start Chat
+    NSString *userName = (NSString *) [onlineBuddies objectAtIndex:indexPath.row];
+	SMChatViewController *chatController = [[SMChatViewController alloc] initWithUser:userName];
+    [self presentViewController:chatController animated:YES completion:nil];
 }
 
 ///*********************************************
@@ -86,6 +92,37 @@
     [self presentViewController:loginController animated:YES completion:NULL];
 }
 
+
+///*********************************************
+#pragma mark - Action Methods
+///*********************************************
+
+
+- (AppDelegate *)appDelegate {
+	return (AppDelegate *)[[UIApplication sharedApplication] delegate];
+}
+
+- (XMPPStream *)xmppStream {
+	return [[self appDelegate] xmppStream];
+}
+
+- (XMPPRoster *)xmppRoster {
+
+}
+
+///*********************************************
+#pragma mark - Chat Delegate
+///*********************************************
+
+- (void)newBuddyOnline:(NSString *)buddyName {
+    [onlineBuddies addObject:buddyName];
+    [self.tView reloadData];
+}
+
+- (void)buddyWentOffline:(NSString *)buddyName {
+    [onlineBuddies removeObject:buddyName];
+    [self.tView reloadData];
+}
 
 /*
 // Override to support conditional editing of the table view.

@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SMMessageDelegate.h"
 
-@interface SMChatViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface SMChatViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, SMMessageDelegate> {
     UITextField *messageField;
     NSString *chatWithUser;
     UITableView *tView;

@@ -82,7 +82,6 @@ NSString * const USER_PASSWORD = @"userPassword";
  */
 - (BOOL) connect {
     [self setupStream];
-#warning Mettere key in una classe appostia.
     NSString *jabberID = [[NSUserDefaults standardUserDefaults] stringForKey:USER_ID];
     NSString *myPassword = [[NSUserDefaults standardUserDefaults] stringForKey:USER_PASSWORD];
     if (![xmppStream isDisconnected]) {
@@ -147,7 +146,6 @@ NSString * const USER_PASSWORD = @"userPassword";
     NSString *presenceType = [presence type]; //online / offline.
     NSString *myUsername = [[sender myJID] user];
     NSString *presenceFromUser = [[presence from] user];
-#warning Cambiare i nomi.
     if (![presenceFromUser isEqualToString:myUsername]) {
         if ([presenceType isEqualToString:@"available"]) {
             [chatDelegate newBuddyOnline:[NSString stringWithFormat:@"%@@%@", presenceFromUser, @"jerry.local"]];
