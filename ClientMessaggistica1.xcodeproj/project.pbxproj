@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181E616F17CB835200C8A77E /* SMChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181E616E17CB835200C8A77E /* SMChatViewController.m */; };
 		1855880817CA3BFC00A37D13 /* XMPPElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 185587F717CA3BFC00A37D13 /* XMPPElement.m */; };
 		1855880917CA3BFC00A37D13 /* XMPPIQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 185587FA17CA3BFC00A37D13 /* XMPPIQ.m */; };
 		1855880A17CA3BFC00A37D13 /* XMPPJID.m in Sources */ = {isa = PBXBuildFile; fileRef = 185587FC17CA3BFC00A37D13 /* XMPPJID.m */; };
@@ -16,6 +17,8 @@
 		1855880E17CA3BFC00A37D13 /* XMPPPresence.m in Sources */ = {isa = PBXBuildFile; fileRef = 1855880517CA3BFC00A37D13 /* XMPPPresence.m */; };
 		1855880F17CA3BFC00A37D13 /* XMPPStream.m in Sources */ = {isa = PBXBuildFile; fileRef = 1855880717CA3BFC00A37D13 /* XMPPStream.m */; };
 		18558A3C17CA747400A37D13 /* SMBuddyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18558A3B17CA747400A37D13 /* SMBuddyListViewController.m */; };
+		18558C1817CA800300A37D13 /* BuddyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18558C1717CA800300A37D13 /* BuddyListViewController.m */; };
+		18558C1B17CA918600A37D13 /* SMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 18558C1A17CA918600A37D13 /* SMLoginViewController.m */; };
 		1859BB6A17CA330800DBA526 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1859BB6917CA330800DBA526 /* CoreLocation.framework */; };
 		1859BB6C17CA330F00DBA526 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1859BB6B17CA330F00DBA526 /* Security.framework */; };
 		1859BB6D17CA331C00DBA526 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 180A8B1217CA32720033586D /* libxml2.dylib */; };
@@ -154,6 +157,8 @@
 
 /* Begin PBXFileReference section */
 		180A8B1217CA32720033586D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		181E616D17CB835200C8A77E /* SMChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMChatViewController.h; sourceTree = "<group>"; };
+		181E616E17CB835200C8A77E /* SMChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMChatViewController.m; sourceTree = "<group>"; };
 		185587F517CA3BFC00A37D13 /* XMPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPP.h; sourceTree = "<group>"; };
 		185587F617CA3BFC00A37D13 /* XMPPElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPElement.h; sourceTree = "<group>"; };
 		185587F717CA3BFC00A37D13 /* XMPPElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPElement.m; sourceTree = "<group>"; };
@@ -178,6 +183,10 @@
 		18558A3917CA5C1600A37D13 /* SMMessageDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMMessageDelegate.h; sourceTree = "<group>"; };
 		18558A3A17CA747400A37D13 /* SMBuddyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMBuddyListViewController.h; sourceTree = "<group>"; };
 		18558A3B17CA747400A37D13 /* SMBuddyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMBuddyListViewController.m; sourceTree = "<group>"; };
+		18558C1617CA800300A37D13 /* BuddyListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BuddyListViewController.h; sourceTree = "<group>"; };
+		18558C1717CA800300A37D13 /* BuddyListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BuddyListViewController.m; sourceTree = "<group>"; };
+		18558C1917CA918600A37D13 /* SMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMLoginViewController.h; sourceTree = "<group>"; };
+		18558C1A17CA918600A37D13 /* SMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMLoginViewController.m; sourceTree = "<group>"; };
 		1859BB6917CA330800DBA526 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1859BB6B17CA330F00DBA526 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1859BB6E17CA332100DBA526 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -1135,9 +1144,15 @@
 				18C72B5917C815ED00B91139 /* AppDelegate.m */,
 				18C72B6417C815ED00B91139 /* ViewController.h */,
 				18C72B6517C815ED00B91139 /* ViewController.m */,
+				18558C1617CA800300A37D13 /* BuddyListViewController.h */,
+				18558C1717CA800300A37D13 /* BuddyListViewController.m */,
+				18558C1917CA918600A37D13 /* SMLoginViewController.h */,
+				18558C1A17CA918600A37D13 /* SMLoginViewController.m */,
+				181E616D17CB835200C8A77E /* SMChatViewController.h */,
+				181E616E17CB835200C8A77E /* SMChatViewController.m */,
+				18C72B6117C815ED00B91139 /* MainStoryboard.storyboard */,
 				18558A3A17CA747400A37D13 /* SMBuddyListViewController.h */,
 				18558A3B17CA747400A37D13 /* SMBuddyListViewController.m */,
-				18C72B6117C815ED00B91139 /* MainStoryboard.storyboard */,
 				18558A3817CA5BD300A37D13 /* Protocol */,
 				18C72B5017C815ED00B91139 /* Supporting Files */,
 			);
@@ -1400,6 +1415,9 @@
 				1855880E17CA3BFC00A37D13 /* XMPPPresence.m in Sources */,
 				1855880F17CA3BFC00A37D13 /* XMPPStream.m in Sources */,
 				18558A3C17CA747400A37D13 /* SMBuddyListViewController.m in Sources */,
+				18558C1817CA800300A37D13 /* BuddyListViewController.m in Sources */,
+				18558C1B17CA918600A37D13 /* SMLoginViewController.m in Sources */,
+				181E616F17CB835200C8A77E /* SMChatViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
