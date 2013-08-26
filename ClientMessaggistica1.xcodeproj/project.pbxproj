@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181E616F17CB835200C8A77E /* SMChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 181E616E17CB835200C8A77E /* SMChatViewController.m */; };
 		1855880817CA3BFC00A37D13 /* XMPPElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 185587F717CA3BFC00A37D13 /* XMPPElement.m */; };
 		1855880917CA3BFC00A37D13 /* XMPPIQ.m in Sources */ = {isa = PBXBuildFile; fileRef = 185587FA17CA3BFC00A37D13 /* XMPPIQ.m */; };
 		1855880A17CA3BFC00A37D13 /* XMPPJID.m in Sources */ = {isa = PBXBuildFile; fileRef = 185587FC17CA3BFC00A37D13 /* XMPPJID.m */; };
@@ -156,6 +157,8 @@
 
 /* Begin PBXFileReference section */
 		180A8B1217CA32720033586D /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		181E616D17CB835200C8A77E /* SMChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMChatViewController.h; sourceTree = "<group>"; };
+		181E616E17CB835200C8A77E /* SMChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMChatViewController.m; sourceTree = "<group>"; };
 		185587F517CA3BFC00A37D13 /* XMPP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPP.h; sourceTree = "<group>"; };
 		185587F617CA3BFC00A37D13 /* XMPPElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPElement.h; sourceTree = "<group>"; };
 		185587F717CA3BFC00A37D13 /* XMPPElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPElement.m; sourceTree = "<group>"; };
@@ -1145,9 +1148,11 @@
 				18558C1717CA800300A37D13 /* BuddyListViewController.m */,
 				18558C1917CA918600A37D13 /* SMLoginViewController.h */,
 				18558C1A17CA918600A37D13 /* SMLoginViewController.m */,
+				181E616D17CB835200C8A77E /* SMChatViewController.h */,
+				181E616E17CB835200C8A77E /* SMChatViewController.m */,
+				18C72B6117C815ED00B91139 /* MainStoryboard.storyboard */,
 				18558A3A17CA747400A37D13 /* SMBuddyListViewController.h */,
 				18558A3B17CA747400A37D13 /* SMBuddyListViewController.m */,
-				18C72B6117C815ED00B91139 /* MainStoryboard.storyboard */,
 				18558A3817CA5BD300A37D13 /* Protocol */,
 				18C72B5017C815ED00B91139 /* Supporting Files */,
 			);
@@ -1412,6 +1417,7 @@
 				18558A3C17CA747400A37D13 /* SMBuddyListViewController.m in Sources */,
 				18558C1817CA800300A37D13 /* BuddyListViewController.m in Sources */,
 				18558C1B17CA918600A37D13 /* SMLoginViewController.m in Sources */,
+				181E616F17CB835200C8A77E /* SMChatViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,6 +9,7 @@
 
 #import "BuddyListViewController.h"
 #import "SMLoginViewController.h"
+#import "AppDelegate.h"
 
 @interface BuddyListViewController ()
 
@@ -82,8 +83,9 @@
 
 - (void)showLogin {
     SMLoginViewController *loginController = [[SMLoginViewController alloc] init];
-    [self presentViewController:loginController animated:YES completion:nil];
+    [self presentViewController:loginController animated:YES completion:NULL];
 }
+
 
 /*
 // Override to support conditional editing of the table view.
